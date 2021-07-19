@@ -15,8 +15,8 @@ def find_smallest_positive(xs):
     If no such index exists, return `None`.
 
     HINT:
-    This is essentially the binary search algorithm from class,
-    but you're always searching for 0.
+    This is essentially the binary search algorithm from class, but
+    you're always searching for 0.
 
     APPLICATION:
     This is a classic question for technical interviews.
