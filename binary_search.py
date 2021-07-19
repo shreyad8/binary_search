@@ -82,7 +82,7 @@ def count_repeats(xs, x):
             if left == right:
                 if xs[left] == x:
                     return left
-                elif left == 0:
+                elif left == 0 and right == 0:
                     return 0
                 else:
                     return len(xs)
