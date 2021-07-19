@@ -213,6 +213,31 @@ def find_boundaries(f):
         you're done; return lo,hi
     '''
 
+    lo = -1
+    mid = 0
+    hi = 1
+    f_lo = f(lo)
+    f_mid = f(mid)
+    f_hi = f(hi)
+
+    while not (f_lo >= f_mid and f_mid <= f_hi):
+        if f_lo < f_mid:
+            lo_old = lo
+            f_lo_old = f_lo
+            lo *= 2
+            f_lo = f(lo)
+            mid = lo_old
+            f_mid = f_lo_old
+        else:
+            hi_old = hi
+            f_hi_old = f_hi
+            hi *= 2
+            f_hi = f(hi)
+            mid = hi_old
+            f_mid = f_hi_old
+
+    return lo, hi
+
 
 def argmin_simple(f, epsilon=1e-3):
     '''
@@ -224,3 +249,6 @@ def argmin_simple(f, epsilon=1e-3):
     If you implement the find_boundaries function correctly,
     then this function will work correctly too.
     '''
+
+    lo, hi = find_boundaries(f)
+    return argmin(f, lo, hi, epsilon)
